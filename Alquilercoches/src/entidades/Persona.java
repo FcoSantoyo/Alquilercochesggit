@@ -1,25 +1,33 @@
 package entidades;
-
+import java.io.Serializable;
 import java.util.Objects;
+import metodos.Validadores;
 
-//Propiedades de persona
-public class Persona implements Comparable{
-	private String dni;
-	private String nombre;
-	private String ap1;
-	private String ap2;
+//Propiedades de persona 
+public abstract class Persona implements Comparable<Persona>,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected  String dni;
+	protected  String nombre;
+	protected String ap1;
+	protected  String ap2;
+	protected  String carnet;
 	
-//Comparadores
-public static final herramientasinterfaces.comparadorPersonaDNI COMPARADORDNI=new comparadordni();
-
 //Constructores
 
-public Persona(String dni,String nombre,String ap1,String ap2)
+public Persona() {
+	
+}
+
+public Persona(String dni,String nombre,String ap1,String ap2,String carnet)
 {
 	this.setDni(dni);
 	this.setNombre(nombre);
 	this.setAp1(ap1);
 	this.setAp2(ap2);
+	this.setCarnet(carnet);
 }
 
 public Persona(String dni,String nombre,String ap1)
@@ -41,6 +49,7 @@ public Persona(Persona o)
 	this.setNombre(o.getNombre());
 	this.setAp1(o.getAp1());
 	this.setAp2(o.getAp2());
+	this.setCarnet(o.getCarnet());
 }
 
 //Getters y Setters
@@ -49,7 +58,9 @@ public String getDni() {
 }
 
 public void setDni(String dni) {
+	if (Validadores.validaDNI(dni))
 	this.dni = dni;
+	
 }
 
 public String getNombre() {
@@ -76,6 +87,14 @@ public void setAp2(String ap2) {
 	this.ap2 = ap2;
 }
 
+
+public String getCarnet() {
+	return carnet;
+}
+
+public void setCarnet(String carnet) {
+	this.carnet = carnet;
+}
 
 //Metodos de persona
 @Override
@@ -110,14 +129,21 @@ public boolean equals(Object obj) {
 			&& Objects.equals(nombre, other.nombre);
 }
 @Override
-public int compareTo(Object o) 
-{
-	//casting (darle forma al objeto)
-	Persona a = (Persona)o;
-	
-	return this.Nombrecompleto().compareToIgnoreCase(a.Nombrecompleto());
-	
+public int compareTo(Persona o) {
+    Persona persona = (Persona)o;       
+
+    if(this.ap1.compareToIgnoreCase(persona.ap1) == 0) {           
+        if(this.nombre.compareToIgnoreCase(persona.nombre) == 0) {
+            return this.dni.compareTo(persona.dni);
+        } else {
+            return this.nombre.compareToIgnoreCase(persona.nombre);
+        }
+    } else {
+        return this.ap1.compareToIgnoreCase(persona.ap1);
+    }       
+
 }
+}        
 
 
-}
+

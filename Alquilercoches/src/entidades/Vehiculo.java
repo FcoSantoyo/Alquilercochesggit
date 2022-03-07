@@ -1,47 +1,73 @@
 package entidades;
+import java.io.Serializable;
+import java.util.GregorianCalendar;
 
-public class Vehiculo {
-	private int id;
-	private String marca;
-	private String modelo;
-	private String bastidor;
-	private String color;
-	private String matricula;
-	private Double kms;
-
+public abstract class Vehiculo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected String matricula;
+	protected String marca;
+	protected String modelo;
+	protected String bastidor;
+	protected String color;
+	protected GregorianCalendar fecha_adquisicion;
+	protected Double kms;
+	protected Categoria categoria;
+	protected Cliente comprador; //el cliente
+	protected double precioalquiler;
+	protected Oficina oficina;
+	
 
 //Constructores
-public Vehiculo(int id,String marca,String modelo,String bastidor,String color,String matricula,Double kms)
+	
+public Vehiculo() {
+}
+
+public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina)
 {
-	this.setId(id);
+	this.setMatricula(matricula);
 	this.setMarca(marca);
 	this.setModelo(modelo);
 	this.setBastidor(bastidor);
 	this.setColor(color);
-	this.setMatricula(matricula);
+	this.setFecha_adquisicion(fecha_adquisicion);
 	this.setKms(kms);
+	this.setComprador(comprador);
+	this.setPrecioalquiler(precioalquiler);
+	this.setOficina(oficina);
+}
+public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler)
+{
+	this.setMatricula(matricula);
+	this.setMarca(marca);
+	this.setModelo(modelo);
+	this.setBastidor(bastidor);
+	this.setColor(color);
+	this.setFecha_adquisicion(fecha_adquisicion);
+	this.setKms(kms);
+	this.setComprador(comprador);
+	this.setPrecioalquiler(precioalquiler);
 }
 
-//Constructor de copia
+
+//Constructores de copia
 public Vehiculo(Vehiculo o)
 {
-	this.setId(o.getId());
+	this.setMatricula(o.getMatricula());
 	this.setMarca(o.getMarca());
 	this.setModelo(o.getModelo());
 	this.setBastidor(o.getBastidor());
 	this.setColor(o.getColor());
-	
+	this.setFecha_adquisicion(o.getFecha_adquisicion());
+	this.setKms(o.getKms());
+	this.setComprador(o.getComprador());
+	this.setPrecioalquiler(o.getPrecioalquiler());
+	this.setOficina(o.getOficina());
 }
 
 //getters y setters
-public int getId() {
-	return id;
-}
-
-
-public void setId(int id) {
-	this.id = id;
-}
 
 
 public String getMarca() {
@@ -90,6 +116,7 @@ public String getMatricula() {
 
 
 public void setMatricula(String matricula) {
+	if (metodos.Validadores.comprobarMatricula(matricula))
 	this.matricula = matricula;
 }
 
@@ -102,6 +129,56 @@ public Double getKms() {
 public void setKms(Double kms) {
 	this.kms = kms;
 }
+
+public Cliente getComprador() {
+	return comprador;
+}
+
+public void setComprador(Cliente comprador) {
+	this.comprador = comprador;
+}
+
+public double getPrecioalquiler() {
+	return precioalquiler;
+}
+
+public void setPrecioalquiler(double precioalquiler) {
+	this.precioalquiler = precioalquiler;
+}
+
+public GregorianCalendar getFecha_adquisicion() {
+	return fecha_adquisicion;
+}
+
+public void setFecha_adquisicion(GregorianCalendar fecha_adquisicion) {
+	this.fecha_adquisicion = fecha_adquisicion;
+}
+
+public Categoria getCategoria() {
+	return categoria;
+}
+
+public void setCategoria(Categoria categoria) {
+	this.categoria = categoria;
+}
+
+public Oficina getOficina() {
+	return oficina;
+}
+
+public void setOficina(Oficina oficina) {
+	this.oficina = oficina;
+}
+
+
+@Override
+public String toString() 
+{
+return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "+bastidor+" Color: "+color+" Fecha de adquisición: "+fecha_adquisicion+" Kilómetros recorridos: "+kms+" Categoria: "+categoria+" Comprador: "+comprador+" Precio de alquiler: "+precioalquiler+" Oficina donde se encuentra el vehiculo: "+oficina);	
+}
+
+
+
 
 
 
