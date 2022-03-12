@@ -7,8 +7,8 @@ public class Alquiler {
 	private Vehiculo vehiculoalq; //vehiculo alquilao
 	private Empleado empleadovend; //empleado que hace la entrega
 	private Cliente clientecomp; //Cliente que ha alquilado el coche
-	private GregorianCalendar fecha_inicio;
-	private GregorianCalendar fecha_fin;
+	private Fechas fecha_inicio;
+	private Fechas fecha_fin;
 	private Oficina oficina; //Oficina donde se entrega
 	private double importe;
 	
@@ -18,7 +18,7 @@ public class Alquiler {
 		
 	}
 	
-	public Alquiler(Vehiculo vehiculoalq,Empleado empleadovend,Cliente clientecomp,GregorianCalendar fecha_inicio,GregorianCalendar fecha_fin)
+	public Alquiler(Vehiculo vehiculoalq,Empleado empleadovend,Cliente clientecomp,Fechas fecha_inicio,Fechas fecha_fin)
 	{
 		this.setVehiculoalq(vehiculoalq);;
 		this.setEmpleadovend(empleadovend);
@@ -60,16 +60,16 @@ public class Alquiler {
 	public void setVehiculoalq(Vehiculo vehiculoalq) {
 		this.vehiculoalq = vehiculoalq;
 	}
-	public GregorianCalendar getFecha_inicio() {
+	public Fechas getFecha_inicio() {
 		return fecha_inicio;
 	}
-	public void setFecha_inicio(GregorianCalendar fecha_inicio) {
+	public void setFecha_inicio(Fechas fecha_inicio) {
 		this.fecha_inicio = fecha_inicio;
 	}
-	public GregorianCalendar getFecha_fin() {
+	public Fechas getFecha_fin() {
 		return fecha_fin;
 	}
-	public void setFecha_fin(GregorianCalendar fecha_fin) {
+	public void setFecha_fin(Fechas fecha_fin) {
 		this.fecha_fin = fecha_fin;
 	}
 	public Oficina getOficina() {

@@ -6,9 +6,11 @@ import entidades.Cliente;
 import entidades.Cochecomb;
 import entidades.Cochelec;
 import entidades.Empleado;
+import entidades.Fechas;
 import entidades.Furgoneta;
 import entidades.Moto;
 import entidades.Oficina;
+import entidades.Vehiculo;
 
 public class CreaEntidades {
 
@@ -20,7 +22,7 @@ public class CreaEntidades {
 		String ap1;
 		String ap2;
 		String carnet;
-		GregorianCalendar fecha_alta;
+		Fechas fecha_alta;
 		String oficina;
 		
 		Scanner in = new Scanner ( System.in );
@@ -34,7 +36,7 @@ public class CreaEntidades {
 		ap2=in.next();
 		System.out.println("Tipo de carnet del Empleado.");
 		carnet=in.next();
-		fecha_alta=(GregorianCalendar) GregorianCalendar.getInstance();
+		fecha_alta=Fechas.ManejoFechas();
 		System.out.println("Oficina donde trabaja el Empleado.");
 		oficina=in.next();
 		
@@ -87,6 +89,23 @@ public class CreaEntidades {
 		return a;
 	}
 	
+	public static Alquiler creaAlquiler()
+	{
+		Vehiculo vehiculoalq; 
+		Empleado empleadovend; 
+		Cliente clientecomp; 
+		GregorianCalendar fecha_inicio;
+		GregorianCalendar fecha_fin;
+		Oficina oficina; 
+		double importe;
+		
+		Scanner in = new Scanner ( System.in );
+		System.out.println("Vehículo alquilado");
+		vehiculoalq=
+	
+		
+	}
+	
 	public static Oficina creaOficina()
 	{
 		String descripcion;
@@ -119,7 +138,7 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		GregorianCalendar fecha_adquisicion;
+		Fechas fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
@@ -142,7 +161,7 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del coche de combustible.");
 		color=in.next();
-		fecha_adquisicion=(GregorianCalendar) GregorianCalendar.getInstance();;
+		fecha_adquisicion=Fechas.ManejoFechas();
 		System.out.println("Kms del coche de combustible.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
@@ -172,7 +191,7 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		GregorianCalendar fecha_adquisicion;
+		Fechas fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
@@ -195,7 +214,7 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del coche eléctrico.");
 		color=in.next();
-		fecha_adquisicion=(GregorianCalendar) GregorianCalendar.getInstance();;
+		fecha_adquisicion=Fechas.ManejoFechas();
 		System.out.println("Kms del coche eléctrico.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
@@ -223,7 +242,7 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		GregorianCalendar fecha_adquisicion;
+		Fechas fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
@@ -246,7 +265,7 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color de la Furgoneta.");
 		color=in.next();
-		fecha_adquisicion=(GregorianCalendar) GregorianCalendar.getInstance();;
+		fecha_adquisicion=Fechas.ManejoFechas();
 		System.out.println("Kms de la Furgoneta.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
@@ -276,7 +295,7 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		GregorianCalendar fecha_adquisicion;
+		Fechas fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
@@ -298,7 +317,7 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del la moto.");
 		color=in.next();
-		fecha_adquisicion=(GregorianCalendar) GregorianCalendar.getInstance();;
+		fecha_adquisicion=Fechas.ManejoFechas();;
 		System.out.println("Kms de la moto.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();

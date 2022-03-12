@@ -9,14 +9,13 @@ public class Principal {
 		// TODO Auto-generated method stub
 		
 		//Serializacion ; creamos el  objeto empresa y lo serializamos...
-		TreeMap<Empleado,String> Empleado = new TreeMap<Empleado,String>();
-		TreeMap<Cliente,String> Cliente = new TreeMap<Cliente,String>();
-		TreeMap<Vehiculo,String> Vehiculo = new TreeMap<Vehiculo,String>();
-		TreeMap<Oficina,String> Oficina = new TreeMap<Oficina,String>();
+		TreeMap<String,Empleado> Empleado = new TreeMap<String,Empleado>();
+		TreeMap<String,Cliente> Cliente = new TreeMap<String,Cliente>();
+		TreeMap<String,Vehiculo> Vehiculo = new TreeMap<String,Vehiculo>();
+		TreeMap<String,Oficina> Oficina = new TreeMap<String,Oficina>();
 		TreeMap<Alquiler,Vehiculo> Alquiler = new TreeMap<Alquiler,Vehiculo>();
-		TreeMap <Categoria,String> Categoria = new TreeMap<Categoria,String>();
+		TreeMap <String,Categoria> Categoria = new TreeMap<String,Categoria>();
 		Empresa Empresa = new Empresa(Empleado,Cliente,Vehiculo,Oficina,Categoria,Alquiler);
-		
 		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("C:\\Users\\avexw\\Desktop\\DAW\\Programación\\Entorno de trabajo\\Empresa.txt"))){
             //Escribimos en un fichero
             oos.writeObject(Empresa);
@@ -42,7 +41,6 @@ public class Principal {
 	        }catch(IOException e){
 	        }
 	    }
-		
 		
 	}
 	

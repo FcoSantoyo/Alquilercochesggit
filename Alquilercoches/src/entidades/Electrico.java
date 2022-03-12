@@ -11,7 +11,7 @@ public abstract class Electrico extends Vehiculo{
 	protected int tiemporecarga;
 
 //Constructor con Propiedades heredadas
-	public Electrico(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina) {
+	public Electrico(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina); 
 	this.setAutonomia(autonomia);
 	this.setTiemporecarga(tiemporecarga);

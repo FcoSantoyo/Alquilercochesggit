@@ -12,7 +12,7 @@ public abstract class Combustible extends Vehiculo {
 	protected String emisiones;
 
 	//Propiedades heredadas
-	public Combustible(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina) {
+	public Combustible(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina);
 		this.setConsumo(consumo);
 		this.setPotencia(potencia);

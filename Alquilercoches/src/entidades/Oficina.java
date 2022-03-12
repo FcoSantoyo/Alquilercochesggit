@@ -69,8 +69,14 @@ public class Oficina implements Serializable{
 	}
 	public void setEmpleado(String empleado) {
 		this.empleado = empleado;
+	}	
 	
-
+		//Metodos
+		public String toString() 
+		{
+		return ("Descripcion: "+descripcion+" Localidad: "+localidad+" Provincia: "+provincia+" Esta oficina está en aeropuerto o no: "+areopuerto_no+" Empleado: "+empleado);	
+		}
+		
 
 
 
@@ -78,5 +84,4 @@ public class Oficina implements Serializable{
 
 		 
 
-}
 }

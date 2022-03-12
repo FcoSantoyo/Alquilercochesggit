@@ -11,7 +11,7 @@ public class Furgoneta extends Combustible{
 	private String carnet;
 	
 	//Propiedades heredadas
-			public Furgoneta(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
+			public Furgoneta(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
 				super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina);
 				this.setCarga(carga);
 				this.setCarnet(carnet);
@@ -23,7 +23,7 @@ public Furgoneta() {
 	
 }
 public Furgoneta(String matricula, String marca, String modelo, String bastidor, String color,
-		GregorianCalendar fecha_adquisicion, Double kms, Categoria categoria, String comprador, double precioalquiler,
+		Fechas fecha_adquisicion, Double kms, Categoria categoria, String comprador, double precioalquiler,
 		Oficina oficina, double consumo, int potencia, String emisiones, Double carga2, String carnet2) {
 
 }
@@ -72,10 +72,23 @@ public void setCarnet(String carnet) {
 	this.carnet = carnet;
 }
 
-
+//Metodos
 @Override
 public String toString() 
 {
 return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "+bastidor+" Color: "+color+" Fecha de adquisición: "+fecha_adquisicion+" Kilómetros recorridos: "+kms+" Categoria: "+categoria+" Comprador: "+comprador+" Precio de alquiler: "+precioalquiler+" Oficina donde se encuentra el vehiculo: "+oficina+" Consumo: "+consumo+" Potencia: "+potencia+" Emisiones: "+emisiones+" Carga permitida: "+carga+" Carnet: "+carnet);	
 }
+
+
+
+@Override
+public void PrecioAlquiler() {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+
+
 }

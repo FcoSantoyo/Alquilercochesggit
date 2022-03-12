@@ -7,7 +7,7 @@ public class Empleado extends Persona {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private GregorianCalendar fecha_alta; //fecha de alta en la empresa
+	private Fechas fecha_alta; //fecha de alta en la empresa
 	private String oficina; //La oficina donde trabaja
 	
 //Las propiedades de la clase de la que hereda
@@ -21,7 +21,7 @@ public Empleado(String dni,String nombre,String ap1,String ap2,String carnet) {
 public Empleado() {
 	
 }
-public Empleado(String dni, String nombre, String ap1, String ap2, String carnet, GregorianCalendar fecha_alta,String oficina2) {
+public Empleado(String dni, String nombre, String ap1, String ap2, String carnet, Fechas fecha_alta,String oficina2) {
 	// TODO Auto-generated constructor stub
 }
 
@@ -40,11 +40,11 @@ public Empleado(Empleado o) {
 	
 //Getters y Setters
 
-public GregorianCalendar getFecha_alta() {
+public Fechas getFecha_alta() {
 	return fecha_alta;
 }
 
-public void setFecha_alta(GregorianCalendar fecha_alta) {
+public void setFecha_alta(Fechas fecha_alta) {
 	this.fecha_alta = fecha_alta;
 }
 

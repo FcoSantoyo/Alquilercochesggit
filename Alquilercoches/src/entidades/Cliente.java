@@ -49,5 +49,9 @@ public int compareTo(Persona o) {
 	// TODO Auto-generated method stub
 	return 0;
 }
+public String toString() 
+{
+return ("DNI: "+dni+" Nombre: "+nombre+" Apellido 1: "+ap1+" Apellido 2: "+ap2+" carnet de conducir: "+carnet+" Tarjeta de cliente: "+tarj_cliente);
+}
 
 }

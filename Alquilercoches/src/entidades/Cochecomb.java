@@ -12,7 +12,7 @@ public class Cochecomb extends Combustible{
 	private String tipo;
 
 	//Propiedades heredadas
-	public Cochecomb(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
+	public Cochecomb(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina);
 		this.setNum_plazas(num_plazas);
 		this.setTipo(tipo);
@@ -23,7 +23,7 @@ public class Cochecomb extends Combustible{
 
 	}
 	public Cochecomb(String matricula, String marca, String modelo, String bastidor, String color,
-			GregorianCalendar fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
+			Fechas fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
 			double precioalquiler, Oficina oficina, Double consumo, int potencia, String emisiones, int num_plazas2,
 			String tipo2) {
 		
@@ -70,6 +70,12 @@ public class Cochecomb extends Combustible{
 	public String toString() 
 	{
 	return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "+bastidor+" Color: "+color+" Fecha de adquisición: "+fecha_adquisicion+" Kilómetros recorridos: "+kms+" Categoria: "+categoria+" Comprador: "+comprador+" Precio de alquiler: "+precioalquiler+" Oficina donde se encuentra el vehiculo: "+oficina+ "Consumo: "+consumo+" Potencia: "+potencia+" Emisiones: "+emisiones+" Número de plazas: "+num_plazas+" Tipo: "+tipo);	
+	}
+
+	@Override
+	public void PrecioAlquiler() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

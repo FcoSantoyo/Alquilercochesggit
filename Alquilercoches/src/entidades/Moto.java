@@ -15,7 +15,7 @@ public class Moto extends Electrico{
 
 
 	//Constructor con Propiedades heredadas
-	public Moto(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
+	public Moto(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina); 
 		this.setCilindrada(cilindrada);
 		this.setCarnet(carnet);
@@ -26,7 +26,7 @@ public class Moto extends Electrico{
 
 	}
 	public Moto(String matricula, String marca, String modelo, String bastidor, String color,
-			GregorianCalendar fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
+			Fechas fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
 			double precioalquiler, Oficina oficina, double autonomia, int tiemporecarga, int cilindrada2,
 			String carnet2) {
 		
@@ -83,6 +83,12 @@ public class Moto extends Electrico{
 	public String toString() 
 	{
 	return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "+bastidor+" Color: "+color+" Fecha de adquisición: "+fecha_adquisicion+" Kilómetros recorridos: "+kms+" Categoria: "+categoria+" Comprador: "+comprador+" Precio de alquiler: "+precioalquiler+" Oficina donde se encuentra el vehiculo: "+oficina+" Autonomia: "+autonomia+" Tiempo de recarga: "+tiemporecarga+" Cilindrada: "+cilindrada+" Carnet requerido: "+carnet);	
+	}
+
+	@Override
+	public void PrecioAlquiler() {
+		// TODO Auto-generated method stub
+		
 	}	
 		
 		

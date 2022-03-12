@@ -12,7 +12,7 @@ public abstract class Vehiculo implements Serializable {
 	protected String modelo;
 	protected String bastidor;
 	protected String color;
-	protected GregorianCalendar fecha_adquisicion;
+	protected Fechas fecha_adquisicion;
 	protected Double kms;
 	protected Categoria categoria;
 	protected Cliente comprador; //el cliente
@@ -25,7 +25,7 @@ public abstract class Vehiculo implements Serializable {
 public Vehiculo() {
 }
 
-public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina)
+public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina)
 {
 	this.setMatricula(matricula);
 	this.setMarca(marca);
@@ -146,11 +146,11 @@ public void setPrecioalquiler(double precioalquiler) {
 	this.precioalquiler = precioalquiler;
 }
 
-public GregorianCalendar getFecha_adquisicion() {
+public Fechas getFecha_adquisicion() {
 	return fecha_adquisicion;
 }
 
-public void setFecha_adquisicion(GregorianCalendar fecha_adquisicion) {
+public void setFecha_adquisicion(Fechas fecha_adquisicion) {
 	this.fecha_adquisicion = fecha_adquisicion;
 }
 
@@ -170,6 +170,7 @@ public void setOficina(Oficina oficina) {
 	this.oficina = oficina;
 }
 
+//Métodos
 
 @Override
 public String toString() 
@@ -178,16 +179,17 @@ return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "
 }
 
 
+//Método polimórfico
+public  abstract void PrecioAlquiler();
 
-
-
-
-
-
-
-
-
-
-
+//(fecha inicio(dias hasta)fecha fin* preciovehiculoxdia)+15%'en electricos, algunos vehiculos sera más(incremento de la categoria' y si es oficina de aeropuesto un 10% más
 
 }
+
+
+
+
+
+//
+
+
