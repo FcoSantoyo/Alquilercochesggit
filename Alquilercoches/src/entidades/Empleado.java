@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Empleado extends Persona {
@@ -7,7 +8,7 @@ public class Empleado extends Persona {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Fechas fecha_alta; //fecha de alta en la empresa
+	private String fecha_alta; //fecha de alta en la empresa
 	private String oficina; //La oficina donde trabaja
 	
 //Las propiedades de la clase de la que hereda
@@ -21,7 +22,17 @@ public Empleado(String dni,String nombre,String ap1,String ap2,String carnet) {
 public Empleado() {
 	
 }
-public Empleado(String dni, String nombre, String ap1, String ap2, String carnet, Fechas fecha_alta,String oficina2) {
+/**
+ * Constructor para crear un objeto Empleado
+ * @param dni
+ * @param nombre
+ * @param ap1
+ * @param ap2
+ * @param carnet
+ * @param fecha_alta2
+ * @param oficina2
+ */
+public Empleado(String dni, String nombre, String ap1, String ap2, String carnet, Date fecha_alta2,String oficina2) {
 	// TODO Auto-generated constructor stub
 }
 
@@ -40,12 +51,12 @@ public Empleado(Empleado o) {
 	
 //Getters y Setters
 
-public Fechas getFecha_alta() {
+public String getFecha_alta() {
 	return fecha_alta;
 }
 
-public void setFecha_alta(Fechas fecha_alta) {
-	this.fecha_alta = fecha_alta;
+public void setFecha_alta(String string) {
+	this.fecha_alta = string;
 }
 
 public String getOficina() {
@@ -62,6 +73,9 @@ public int compareTo(Persona o) {
 }
 
 @Override
+/**
+ * Devuelve toda la información en una cadena de texto
+ */
 public String toString() 
 {
 return ("DNI: "+dni+" Nombre: "+nombre+" Apellido 1: "+ap1+" Apellido 2: "+ap2+" carnet de conducir: "+carnet+" Fecha de alta en la empresa: "+fecha_alta+" Oficina en la que trabaja: "+oficina);	

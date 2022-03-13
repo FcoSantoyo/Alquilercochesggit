@@ -3,6 +3,11 @@ package metodos;
 public class Validadores {
 
 	//Validar matrícula
+	/**
+	 * Metodo que valida una matrícula
+	 * @param matricula
+	 * @return
+	 */
 	public static boolean comprobarMatricula (String matricula){
 
 	    if (matricula.toUpperCase().matches("^[0-9]{4}[A-Z]{3}$")) {
@@ -15,7 +20,11 @@ public class Validadores {
 	        return false;
 	    }      
 	}
-	
+	/**
+	 * Método que valida un DNI
+	 * @param dni
+	 * @return
+	 */
 	public static boolean validaDNI(String dni) {
 		// El método es privado porque lo voy a usar internamente en esta clase, no se necesita fuera de ella
 

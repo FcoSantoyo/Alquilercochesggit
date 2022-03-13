@@ -9,15 +9,22 @@ public class Oficina implements Serializable{
 	private String descripcion;
 	private String localidad;
 	private String provincia;
-	private int areopuerto_no; //lo pongo int para poner un 1 si es de aeropuesto y un 2 si no lo es
+	private boolean areopuerto_no; //lo pongo int para poner un 1 si es de aeropuesto y un 2 si no lo es
 	private String empleado; //esto creo que si podria ser arraylist
 	
 	//Constructores
 	public Oficina() {
 		
 	}
-	
-	public Oficina(String descripcion,String localidad,String provincia,int aeropuerto_no,String empleado) {
+	/**
+	 * Constructor que crea un objeto Oficina
+	 * @param descripcion
+	 * @param localidad
+	 * @param provincia
+	 * @param aeropuerto_no
+	 * @param empleado
+	 */
+	public Oficina(String descripcion,String localidad,String provincia,boolean aeropuerto_no,String empleado) {
 		this.setDescripcion(descripcion);
 		this.setLocalidad(localidad);
 		this.setProvincia(provincia);
@@ -58,10 +65,10 @@ public class Oficina implements Serializable{
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
-	public int getAreopuerto_no() {
+	public boolean getAreopuerto_no() {
 		return areopuerto_no;
 	}
-	public void setAreopuerto_no(int areopuerto_no) {
+	public void setAreopuerto_no(boolean areopuerto_no) {
 		this.areopuerto_no = areopuerto_no;
 	}
 	public String getEmpleado() {

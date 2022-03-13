@@ -1,6 +1,7 @@
 package grabardatos;
 import java.util.*;
 
+import entidades.Alquiler;
 import entidades.Categoria;
 import entidades.Cliente;
 import entidades.Cochecomb;
@@ -14,7 +15,10 @@ import entidades.Vehiculo;
 
 public class CreaEntidades {
 
-	
+	/**
+	 * Método para crear un objeto Empleado
+	 * @return
+	 */
 	public static Empleado CreaEmpleado()
 	{
 		String dni;
@@ -22,7 +26,7 @@ public class CreaEntidades {
 		String ap1;
 		String ap2;
 		String carnet;
-		Fechas fecha_alta;
+		Date fecha_alta;
 		String oficina;
 		
 		Scanner in = new Scanner ( System.in );
@@ -36,14 +40,17 @@ public class CreaEntidades {
 		ap2=in.next();
 		System.out.println("Tipo de carnet del Empleado.");
 		carnet=in.next();
-		fecha_alta=Fechas.ManejoFechas();
+		fecha_alta=Fechas.ManejoFechas(in.next());
 		System.out.println("Oficina donde trabaja el Empleado.");
 		oficina=in.next();
 		
 		Empleado a = new Empleado(dni,nombre,ap1,ap2,carnet,fecha_alta,oficina);
 		return a;
 	}
-	
+	/**
+	 * Método para crear un objeto Cliente
+	 * @return
+	 */
 	public static Cliente CreaCliente()
 	{
 		String dni;
@@ -71,11 +78,15 @@ public class CreaEntidades {
 		return a;
 		
 	}
+	/**
+	 * Método para crear un objeto Categoria
+	 * @return
+	 */
 	public static Categoria creaCategoria()
 	{
 		String codigo;
 		String descripcion;
-		double porcentaje;
+		int porcentaje;
 		Scanner in = new Scanner ( System.in );
 		
 		System.out.println("Código.");
@@ -83,35 +94,57 @@ public class CreaEntidades {
 		System.out.println("Descripción de esta categoría");
 		descripcion=in.next();
 		System.out.println("Porcentaje");
-		porcentaje=in.nextDouble();
+		porcentaje=in.nextInt();
 		
 		Categoria a = new Categoria(codigo,descripcion,porcentaje);
 		return a;
 	}
-	
+	/**
+	 * Método para crear un objeto Alquiler
+	 * @return
+	 */
 	public static Alquiler creaAlquiler()
 	{
 		Vehiculo vehiculoalq; 
 		Empleado empleadovend; 
 		Cliente clientecomp; 
-		GregorianCalendar fecha_inicio;
-		GregorianCalendar fecha_fin;
+		Date fecha_inicio;
+		Date fecha_fin;
 		Oficina oficina; 
 		double importe;
 		
+		
 		Scanner in = new Scanner ( System.in );
 		System.out.println("Vehículo alquilado");
-		vehiculoalq=
+		vehiculoalq=CreaEntidades.CreaCochecomb();
+		System.out.println("Empleado que ha realizado el alquiler");
+		empleadovend=CreaEntidades.CreaEmpleado();
+		System.out.println("Venta al cliente...");
+		clientecomp=CreaEntidades.CreaCliente();
+		System.out.println("Fecha del dia de inicio del alquiler");
+		fecha_inicio=Fechas.ManejoFechas(in.next());
+		System.out.println("Fecha del dia de fin  del alquiler");
+		fecha_fin=Fechas.ManejoFechas(in.next());
+		System.out.println("Oficina donde se realiza el alquiler");
+		oficina=CreaEntidades.creaOficina();
+		System.out.println("Importe del alquiler");
+		importe=(vehiculoalq.PrecioAlquiler());
+		
+		Alquiler a = new Alquiler (vehiculoalq,empleadovend,clientecomp,fecha_inicio,fecha_fin,oficina,importe);
+		return a;
 	
 		
 	}
-	
+	/**
+	 * Método para crear un objeto Oficina
+	 * @return
+	 */
 	public static Oficina creaOficina()
 	{
 		String descripcion;
 		String localidad;
 		String provincia;
-		int aeropuerto_no; 
+		boolean aeropuerto_no; 
 		String empleado; 
 		
 		Scanner in = new Scanner ( System.in );
@@ -122,7 +155,7 @@ public class CreaEntidades {
 		System.out.println("Provincia donde se encuentra la Oficina.");
 		provincia=in.next();
 		System.out.println("¿Es una oficina cerca del aeropuerto? 1)Sí 2)No");
-		aeropuerto_no=in.nextInt();
+		aeropuerto_no=in.nextBoolean();
 		System.out.println("¿Que empleado le atiende?");
 		empleado=in.next();
 		
@@ -130,7 +163,10 @@ public class CreaEntidades {
 		return a;
 				
 	}
-	
+	/**
+	 * Método para crear un objeto coche combustible
+	 * @return
+	 */
 	public static Cochecomb CreaCochecomb()
 	{
 		String matricula;
@@ -138,11 +174,11 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		Fechas fecha_adquisicion;
+		Date fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
-		double precioalquiler;
+		int precioalquiler;
 		Oficina oficina; //
 		Double consumo;
 		int potencia;
@@ -161,13 +197,13 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del coche de combustible.");
 		color=in.next();
-		fecha_adquisicion=Fechas.ManejoFechas();
+		fecha_adquisicion=Fechas.ManejoFechas(in.next());
 		System.out.println("Kms del coche de combustible.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
 		System.out.println("Comprador del coche de combustible.");
 		comprador=CreaEntidades.CreaCliente();
-		precioalquiler=in.nextDouble(); //Esto calcular con un método
+		precioalquiler=50; //Esto calcular con un método
 		oficina=CreaEntidades.creaOficina();
 		System.out.println("¿Cuánto consume el coche de combustible?");
 		consumo=in.nextDouble();
@@ -183,7 +219,10 @@ public class CreaEntidades {
 		Cochecomb a = new Cochecomb(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina,consumo,potencia,emisiones,num_plazas,tipo);
 		return a;
 	}
-	
+	/**
+	 * Método para crear un objeto coche eléctrico
+	 * @return
+	 */
 	public static Cochelec CreaCochelec()
 	{
 		String matricula;
@@ -191,11 +230,11 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		Fechas fecha_adquisicion;
+		Date fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
-		double precioalquiler;
+		int precioalquiler;
 		Oficina oficina;
 		Double autonomia;
 		int tiemporecarga;
@@ -214,13 +253,13 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del coche eléctrico.");
 		color=in.next();
-		fecha_adquisicion=Fechas.ManejoFechas();
+		fecha_adquisicion=Fechas.ManejoFechas(in.next());
 		System.out.println("Kms del coche eléctrico.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
 		System.out.println("Comprador del coche eléctrico.");
 		comprador=CreaEntidades.CreaCliente();
-		precioalquiler=in.nextDouble(); //Esto calcular con un método
+		precioalquiler=50; //Esto calcular con un método
 		oficina=CreaEntidades.creaOficina();
 		System.out.println("Autonomía del coche eléctrico.");
 		autonomia=in.nextDouble();
@@ -235,6 +274,10 @@ public class CreaEntidades {
 		return a;
 		
 	}
+	/**
+	 * Método para crear un objeto Furgoneta
+	 * @return
+	 */
 	public static Furgoneta CreaFurgoneta()
 	{
 		String matricula;
@@ -242,11 +285,11 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		Fechas fecha_adquisicion;
+		String fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
-		double precioalquiler;
+		int precioalquiler;
 		Oficina oficina;
 		double consumo;
 		int potencia;
@@ -265,13 +308,14 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color de la Furgoneta.");
 		color=in.next();
-		fecha_adquisicion=Fechas.ManejoFechas();
+		System.out.println("Fecha de adquisicion de la Furgoneta");
+		fecha_adquisicion=in.next();
 		System.out.println("Kms de la Furgoneta.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
 		System.out.println("Comprador de la Furgoneta.");
 		comprador=CreaEntidades.CreaCliente();
-		precioalquiler=in.nextDouble(); //Esto calcular con un método
+		precioalquiler=70; //Esto calcular con un método
 		oficina=CreaEntidades.creaOficina();
 		System.out.println("¿Cuánto consume la Furgoneta?");
 		consumo=in.nextDouble();
@@ -287,7 +331,10 @@ public class CreaEntidades {
 		Furgoneta a = new Furgoneta(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina,consumo,potencia,emisiones,carga,carnet);
 		return a;
 	}
-	
+	/**
+	 * Método para crear un objeto Moto
+	 * @return
+	 */
 	public static Moto CreaMoto()
 	{
 		String matricula;
@@ -295,11 +342,11 @@ public class CreaEntidades {
 		String modelo;
 		String bastidor;
 		String color;
-		Fechas fecha_adquisicion;
+		Date fecha_adquisicion;
 		Double kms;
 		Categoria categoria;
 		Cliente comprador; 
-		double precioalquiler;
+		int precioalquiler;
 		Oficina oficina;
 		double autonomia;
 		int tiemporecarga;
@@ -317,13 +364,13 @@ public class CreaEntidades {
 		bastidor=in.next();
 		System.out.println("Color del la moto.");
 		color=in.next();
-		fecha_adquisicion=Fechas.ManejoFechas();;
+		fecha_adquisicion=Fechas.ManejoFechas(in.next());;
 		System.out.println("Kms de la moto.");
 		kms=in.nextDouble();
 		categoria=creaCategoria();
 		System.out.println("Comprador de la moto.");
 		comprador=CreaEntidades.CreaCliente();
-		precioalquiler=in.nextDouble(); //Esto calcular con un método
+		precioalquiler=10; //Esto calcular con un método
 		oficina=CreaEntidades.creaOficina();
 		System.out.println("Autonomía de la moto.");
 		autonomia=in.nextDouble();

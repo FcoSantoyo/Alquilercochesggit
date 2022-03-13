@@ -1,6 +1,7 @@
 
 package entidades;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Moto extends Electrico{
@@ -15,7 +16,7 @@ public class Moto extends Electrico{
 
 
 	//Constructor con Propiedades heredadas
-	public Moto(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
+	public Moto(String matricula,String marca,String modelo,String bastidor,String color,String fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,int precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina); 
 		this.setCilindrada(cilindrada);
 		this.setCarnet(carnet);
@@ -26,8 +27,8 @@ public class Moto extends Electrico{
 
 	}
 	public Moto(String matricula, String marca, String modelo, String bastidor, String color,
-			Fechas fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
-			double precioalquiler, Oficina oficina, double autonomia, int tiemporecarga, int cilindrada2,
+			Date fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
+			int precioalquiler, Oficina oficina, double autonomia, int tiemporecarga, int cilindrada2,
 			String carnet2) {
 		
 	}
@@ -86,10 +87,26 @@ public class Moto extends Electrico{
 	}
 
 	@Override
-	public void PrecioAlquiler() {
-		// TODO Auto-generated method stub
+	/**
+	 * Método para calcular el precio de alquiler de un vehículo
+	 */
+	public int PrecioAlquiler() {
+		int precioalquiler= this.precioalquiler;
+		int porcentaje= 15;
+		int recargo=0;
+		int precio;
 		
-	}	
+		precio = precioalquiler + (porcentaje*precioalquiler)/100;
+		
+		recargo= this.getCategoria().getPorcentaje();
+		recargo= (recargo*precioalquiler)/100; //para obtener el porcentaje de recargo de la categoria
+		precio += recargo;
+		if (this.getOficina().getAreopuerto_no())
+		{
+			precio +=(precioalquiler*10)/100;
+		}
+		return precio;
+	}
 		
 		
 		

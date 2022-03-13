@@ -19,6 +19,15 @@ public Cliente (String dni,String nombre,String ap1,String ap2,String carnet) {
 public Cliente() {
 	
 }
+/**
+ * Constructor para crear un objeto cliente
+ * @param dni
+ * @param nombre
+ * @param ap1
+ * @param ap2
+ * @param carnet
+ * @param tarj_cliente
+ */
 public Cliente(String dni, String nombre, String ap1, String ap2, String carnet, String tarj_cliente) {
 	// TODO Auto-generated constructor stub
 }

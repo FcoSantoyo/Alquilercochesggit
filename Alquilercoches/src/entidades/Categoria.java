@@ -8,15 +8,20 @@ public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String codigo;
 	private String descripcion;
-	private double porcentaje;
+	private int porcentaje;
 	
 	//Constructores
 	
 	public Categoria() {
 		
 	}
-	
-	public Categoria(String codigo,String descripcion,double porcentaje) {
+	/**
+	 * Constructor para crear un objeto Categoría
+	 * @param codigo
+	 * @param descripcion
+	 * @param porcentaje
+	 */
+	public Categoria(String codigo,String descripcion,int porcentaje) {
 		this.setCodigo(codigo);
 		this.setDescripcion(descripcion);
 		this.setPorcentaje(porcentaje);
@@ -43,10 +48,10 @@ public class Categoria implements Serializable {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public double getPorcentaje() {
+	public int getPorcentaje() {
 		return porcentaje;
 	}
-	public void setPorcentaje(double porcentaje) {
+	public void setPorcentaje(int porcentaje) {
 		this.porcentaje = porcentaje;
 	}
 

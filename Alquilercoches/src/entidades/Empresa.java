@@ -23,7 +23,15 @@ public class Empresa implements Serializable {
 	public Empresa() {
 		
 	}
-	
+	/**
+	 * Constructor para Crear un objeto de Empresa
+	 * @param Empleado
+	 * @param Cliente
+	 * @param Vehiculo
+	 * @param Oficina
+	 * @param Categoria
+	 * @param Alquiler
+	 */
 	public Empresa(TreeMap<String,Empleado> Empleado,TreeMap<String,Cliente> Cliente,TreeMap<String,Vehiculo> Vehiculo,TreeMap<String,Oficina> Oficina,TreeMap<String,Categoria> Categoria,TreeMap<Alquiler,Vehiculo> Alquiler)
 	{
 		this.setEmpleado(Empleado);
@@ -99,24 +107,37 @@ public class Empresa implements Serializable {
 	//Añadir 
 	
 	//Vehiculos
+	/**
+	 * Crea un Coche de combustible y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public  void añadeCochecomb(Empresa Empresa) {
 		Cochecomb a;
 		a=CreaEntidades.CreaCochecomb();
 		Empresa.getVehiculo().put(a.getMatricula(),a);
 	}
-	
+	/**
+	 * Crea un Coche eléctrico y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeCochelec(Empresa Empresa) {
 		Cochelec a;
 		a=CreaEntidades.CreaCochelec();
 		Empresa.getVehiculo().put(a.getMatricula(),a);
 	}
-	
+	/**
+	 * Crea una Furgoneta y la añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeFurgoneta(Empresa Empresa) {
 		Furgoneta a;
 		a=CreaEntidades.CreaFurgoneta();
 		Empresa.getVehiculo().put(a.getMatricula(),a);
 	}
-	
+	/**
+	 * Crea una Moto eléctrico y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeMoto(Empresa Empresa) {
 		Moto a;
 		a=CreaEntidades.CreaMoto();
@@ -124,12 +145,19 @@ public class Empresa implements Serializable {
 	}
 	
 	//Personas
+	/**
+	 * Crea un Cliente y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeCliente(Empresa Empresa) {
 		Cliente a;
 		a=CreaEntidades.CreaCliente();
 		Empresa.getCliente().put(a.getDni(),a);
 	}
-	
+	/**
+	 * Crea un Empleado y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeEmpleado(Empresa Empresa) {
 		Empleado a;
 		a=CreaEntidades.CreaEmpleado();
@@ -137,16 +165,28 @@ public class Empresa implements Serializable {
 	}
 	
 	//Otras entidades
+	/**
+	 * Crea uan Categoría y la añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeCategoria(Empresa Empresa) {
 		Categoria a;
 		a=CreaEntidades.creaCategoria();
 		Empresa.getCategoria().put(a.getCodigo(),a);
 	}
+	/**
+	 * Crea una Oficina y la añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeOficina(Empresa Empresa) {
 		Oficina a;
 		a=CreaEntidades.creaOficina();
 		Empresa.getOficina().put(a.getProvincia(),a);
 	}
+	/**
+	 * Crea un Alquiler y lo añade a la Empresa.
+	 * @param Empresa
+	 */
 	public void añadeAlquiler(Empresa Empresa) {
 		Alquiler a;
 		a=CreaEntidades.creaAlquiler();
@@ -154,7 +194,10 @@ public class Empresa implements Serializable {
 	}
 	
 	//Modificar
-	
+	/**
+	 * Modifica un objeto moto
+	 * @param moto
+	 */
 	public void modificarMoto(Moto moto) {
 		Scanner in = new Scanner ( System.in );
 		System.out.println("Introduzca una nueva Marca");
@@ -166,13 +209,13 @@ public class Empresa implements Serializable {
 		System.out.println("Introduzca nuevo color");
 		moto.setColor(in.next());
 		System.out.println("Nueva Fecha de adquisición");
-		moto.setFecha_adquisicion(Fechas.ManejoFechas());
+		moto.setFecha_adquisicion(in.next());
 		System.out.println("Nuevo dato sobre los kilómetros");
 		moto.setKms(in.nextDouble());
 		System.out.println("Nuevo Comprador");
 		moto.setComprador(CreaEntidades.CreaCliente());
 		System.out.println("Nuevo precio de Alquiler");
-		moto.setPrecioalquiler(in.nextDouble());
+		moto.setPrecioalquiler(in.nextInt());
 		System.out.println("Nueva oficina donde se encuentra");
 		moto.setOficina(CreaEntidades.creaOficina());
 		System.out.println("Nueva autonomía");
@@ -184,7 +227,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nuevo tipo de carnet necesario");
 		moto.setCarnet(in.next());
 	}
-	
+	/**
+	 * Modifica un objeto coche eléctrico
+	 * @param cochelec
+	 */
 	public void modificarCochelec(Cochelec cochelec) {
 		Scanner in = new Scanner ( System.in );
 		
@@ -197,13 +243,13 @@ public class Empresa implements Serializable {
 		System.out.println("Introduzca nuevo color");
 		cochelec.setColor(in.next());
 		System.out.println("Nueva Fecha de adquisición");
-		cochelec.setFecha_adquisicion(Fechas.ManejoFechas());
+		cochelec.setFecha_adquisicion(in.next());
 		System.out.println("Nuevo dato sobre los kilómetros");
 		cochelec.setKms(in.nextDouble());
 		System.out.println("Nuevo Comprador");
 		cochelec.setComprador(CreaEntidades.CreaCliente());
 		System.out.println("Nuevo precio de Alquiler");
-		cochelec.setPrecioalquiler(in.nextDouble());
+		cochelec.setPrecioalquiler(in.nextInt());
 		System.out.println("Nueva oficina donde se encuentra");
 		cochelec.setOficina(CreaEntidades.creaOficina());
 		System.out.println("Nueva autonomía");
@@ -215,7 +261,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nuevo tipo de vehiculo");
 		cochelec.setTipo(in.next());
 	}
-	
+	/**
+	 * Modifica un objeto coche de combustible
+	 * @param cochecomb
+	 */
 	public void modificarCochecomb(Cochecomb cochecomb) {
 		Scanner in = new Scanner ( System.in );
 		
@@ -228,13 +277,13 @@ public class Empresa implements Serializable {
 		System.out.println("Introduzca nuevo color");
 		cochecomb.setColor(in.next());
 		System.out.println("Nueva Fecha de adquisición");
-		cochecomb.setFecha_adquisicion(Fechas.ManejoFechas());
+		cochecomb.setFecha_adquisicion(in.next());
 		System.out.println("Nuevo dato sobre los kilómetros");
 		cochecomb.setKms(in.nextDouble());
 		System.out.println("Nuevo Comprador");
 		cochecomb.setComprador(CreaEntidades.CreaCliente());
 		System.out.println("Nuevo precio de Alquiler");
-		cochecomb.setPrecioalquiler(in.nextDouble());
+		cochecomb.setPrecioalquiler(in.nextInt());
 		System.out.println("Nueva oficina donde se encuentra");
 		cochecomb.setOficina(CreaEntidades.creaOficina());
 		System.out.println("Nuevo consumo");
@@ -248,7 +297,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nuevo tipo de vehiculo");
 		cochecomb.setTipo(in.next());
 	}
-	
+	/**
+	 * Modifica un objeto Furgoneta
+	 * @param furgoneta
+	 */
 	public void modificarFurgoneta(Furgoneta furgoneta) {
 		Scanner in = new Scanner ( System.in );
 		
@@ -261,13 +313,13 @@ public class Empresa implements Serializable {
 		System.out.println("Introduzca nuevo color");
 		furgoneta.setColor(in.next());
 		System.out.println("Nueva Fecha de adquisición");
-		furgoneta.setFecha_adquisicion(Fechas.ManejoFechas());
+		furgoneta.setFecha_adquisicion(in.next());
 		System.out.println("Nuevo dato sobre los kilómetros");
 		furgoneta.setKms(in.nextDouble());
 		System.out.println("Nuevo Comprador");
 		furgoneta.setComprador(CreaEntidades.CreaCliente());
 		System.out.println("Nuevo precio de Alquiler");
-		furgoneta.setPrecioalquiler(in.nextDouble());
+		furgoneta.setPrecioalquiler(in.nextInt());
 		System.out.println("Nueva oficina donde se encuentra");
 		furgoneta.setOficina(CreaEntidades.creaOficina());
 		System.out.println("Nuevo consumo");
@@ -281,7 +333,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nuevo carnet necesario");
 		furgoneta.setCarnet(in.next());
 	}
-	
+	/**
+	 * Modifica un objeto Empleado
+	 * @param empleado
+	 */
 	public void modificarEmpleado(Empleado empleado) {
 		Scanner in = new Scanner ( System.in );
 		System.out.println("Nuevo nombre");
@@ -293,11 +348,14 @@ public class Empresa implements Serializable {
 		System.out.println("Nuevo carnet");
 		empleado.setCarnet(in.next());
 		System.out.println("Nueva fecha de alta");
-		empleado.setFecha_alta(Fechas.ManejoFechas());
+		empleado.setFecha_alta(in.next());
 		System.out.println("Nueva oficina en la que trabaja");
 		empleado.setOficina(in.next());
 	}
-	
+	/**
+	 * Modifica un objeto cliente
+	 * @param cliente
+	 */
 	public void modificarCliente(Cliente cliente) {
 		Scanner in = new Scanner ( System.in );
 		System.out.println("Nuevo nombre");
@@ -311,6 +369,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nueva tarjeta de cliente");
 		cliente.setTarj_cliente(in.next());
 	}
+	/**
+	 * Modifica un objeto Oficina
+	 * @param oficina
+	 */
 	
 	public void modificarOficina(Oficina oficina) {
 		Scanner in = new Scanner ( System.in );
@@ -322,33 +384,35 @@ public class Empresa implements Serializable {
 		System.out.println("Nueva Provincia");
 		oficina.setProvincia(in.next());
 		System.out.println("Aeropuerto o no");
-		oficina.setAreopuerto_no(in.nextInt());
+		oficina.setAreopuerto_no(in.nextBoolean());
 		System.out.println("Nuevo empleado");
 		oficina.setEmpleado(in.next());
 		
 	}
-	
+	/**
+	 * Modifica un objeto Alquiler
+	 * @param alquiler
+	 */
 	public void modificarAlquiler(Alquiler alquiler) {
 		Scanner in = new Scanner ( System.in );
 		
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		
-		
-		this.setVehiculoalq(o.getVehiculoalq());
-		this.setEmpleadovend(o.getEmpleadovend());
-		this.setClientecomp(o.getClientecomp());
-		this.setFecha_inicio(o.getFecha_inicio());
-		this.setFecha_fin(o.fecha_fin);
-		this.setOficina(o.getOficina());
-		this.setImporte(o.getImporte());
+		System.out.println("Modifica el vehículo");
+		alquiler.setVehiculoalq(CreaEntidades.CreaCochecomb());
+		System.out.println("Modificar el empleado que vendió el vehículo");
+		alquiler.setEmpleadovend(CreaEntidades.CreaEmpleado());
+		System.out.println("Modificar el cliente que compró el vehículo");
+		alquiler.setClientecomp(CreaEntidades.CreaCliente());
+		System.out.println("Modificar fecha inicio");
+		alquiler.setFecha_inicio(in.next());
+		System.out.println("Modificar fecha fin");
+		alquiler.setFecha_fin(in.next());
+		System.out.println("Modificar la oficina");
+		alquiler.setOficina(CreaEntidades.creaOficina());
 	}
-	
+	/**
+	 * Modifica un objeto Categoría
+	 * @param categoria
+	 */
 	public void modificaCategoria(Categoria categoria) {
 		Scanner in = new Scanner ( System.in );
 		
@@ -357,13 +421,10 @@ public class Empresa implements Serializable {
 		System.out.println("Nueva descripción");
 		categoria.setDescripcion(in.next());
 		System.out.println("Nuevo porcentaje");
-		categoria.setPorcentaje(in.nextDouble());
+		categoria.setPorcentaje(in.nextInt());
 
 	}
-	
-	//Eliminar
-	
-	//esto luego en la main poner el .remove
+
 
 	
 	

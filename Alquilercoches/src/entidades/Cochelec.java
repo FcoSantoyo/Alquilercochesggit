@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Cochelec extends Electrico{
@@ -11,7 +12,7 @@ public class Cochelec extends Electrico{
 	private String tipo;
 
 	//Constructor con Propiedades heredadas
-	public Cochelec(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
+	public Cochelec(String matricula,String marca,String modelo,String bastidor,String color,String fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,int precioalquiler,Oficina oficina,Double autonomia,int tiemporecarga) {
 		super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina); 
 		this.setNum_plazas(num_plazas);
 		this.setTipo(tipo);
@@ -24,8 +25,26 @@ public class Cochelec extends Electrico{
 	public Cochelec() {
 
 	}
+	/**
+	 * Constructor para crear un coche eléctrico
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param bastidor
+	 * @param color
+	 * @param fecha_adquisicion
+	 * @param kms
+	 * @param categoria
+	 * @param comprador
+	 * @param precioalquiler
+	 * @param oficina
+	 * @param autonomia
+	 * @param tiemporecarga
+	 * @param num_plazas2
+	 * @param tipo2
+	 */
 	public Cochelec(String matricula, String marca, String modelo, String bastidor, String color,
-			Fechas fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
+			Date fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador,
 			double precioalquiler, Oficina oficina, Double autonomia, int tiemporecarga, int num_plazas2,
 			String tipo2) {
 		
@@ -76,11 +95,26 @@ public class Cochelec extends Electrico{
 
 
 
-
+	/**
+	 * Método para calcular el precio de alquiler de un vehículo
+	 */
 	@Override
-	public void PrecioAlquiler() {
-		// TODO Auto-generated method stub
+	public int PrecioAlquiler() {
+		int precioalquiler= this.precioalquiler;
+		int porcentaje= 15;
+		int recargo=0;
+		int precio;
 		
+		precio = precioalquiler + (porcentaje*precioalquiler)/100;
+		
+		recargo= this.getCategoria().getPorcentaje();
+		recargo= (recargo*precioalquiler)/100; //para obtener el porcentaje de recargo de la categoria
+		precio += recargo;
+		if (this.getOficina().getAreopuerto_no())
+		{
+			precio +=(precioalquiler*10)/100;
+		}
+		return precio;
 	}
 	
 	

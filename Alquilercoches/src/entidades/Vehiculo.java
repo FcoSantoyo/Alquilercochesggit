@@ -12,11 +12,11 @@ public abstract class Vehiculo implements Serializable {
 	protected String modelo;
 	protected String bastidor;
 	protected String color;
-	protected Fechas fecha_adquisicion;
+	protected String fecha_adquisicion;
 	protected Double kms;
 	protected Categoria categoria;
 	protected Cliente comprador; //el cliente
-	protected double precioalquiler;
+	protected int precioalquiler;
 	protected Oficina oficina;
 	
 
@@ -24,8 +24,10 @@ public abstract class Vehiculo implements Serializable {
 	
 public Vehiculo() {
 }
-
-public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina)
+public Vehiculo(int precioalquiler) {
+	this.setPrecioalquiler(precioalquiler);
+}
+public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,String fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,int precioalquiler,Oficina oficina)
 {
 	this.setMatricula(matricula);
 	this.setMarca(marca);
@@ -38,7 +40,7 @@ public Vehiculo(String matricula,String marca,String modelo,String bastidor,Stri
 	this.setPrecioalquiler(precioalquiler);
 	this.setOficina(oficina);
 }
-public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,GregorianCalendar fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler)
+public Vehiculo(String matricula,String marca,String modelo,String bastidor,String color,String fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,int precioalquiler)
 {
 	this.setMatricula(matricula);
 	this.setMarca(marca);
@@ -138,19 +140,19 @@ public void setComprador(Cliente comprador) {
 	this.comprador = comprador;
 }
 
-public double getPrecioalquiler() {
+public int getPrecioalquiler() {
 	return precioalquiler;
 }
 
-public void setPrecioalquiler(double precioalquiler) {
+public void setPrecioalquiler(int precioalquiler) {
 	this.precioalquiler = precioalquiler;
 }
 
-public Fechas getFecha_adquisicion() {
+public String getFecha_adquisicion() {
 	return fecha_adquisicion;
 }
 
-public void setFecha_adquisicion(Fechas fecha_adquisicion) {
+public void setFecha_adquisicion(String fecha_adquisicion) {
 	this.fecha_adquisicion = fecha_adquisicion;
 }
 
@@ -180,7 +182,7 @@ return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "
 
 
 //Método polimórfico
-public  abstract void PrecioAlquiler();
+public  abstract int PrecioAlquiler();
 
 //(fecha inicio(dias hasta)fecha fin* preciovehiculoxdia)+15%'en electricos, algunos vehiculos sera más(incremento de la categoria' y si es oficina de aeropuesto un 10% más
 

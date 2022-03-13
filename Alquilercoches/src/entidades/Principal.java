@@ -1,14 +1,19 @@
 package entidades;
 
 import java.io.*;
+import java.util.Scanner;
 import java.util.TreeMap;
+
+import grabardatos.CreaEntidades;
+import interfazusuario.Menus;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner in = new Scanner ( System.in );
 		
-		//Serializacion ; creamos el  objeto empresa y lo serializamos...
+		
 		TreeMap<String,Empleado> Empleado = new TreeMap<String,Empleado>();
 		TreeMap<String,Cliente> Cliente = new TreeMap<String,Cliente>();
 		TreeMap<String,Vehiculo> Vehiculo = new TreeMap<String,Vehiculo>();
@@ -16,6 +21,113 @@ public class Principal {
 		TreeMap<Alquiler,Vehiculo> Alquiler = new TreeMap<Alquiler,Vehiculo>();
 		TreeMap <String,Categoria> Categoria = new TreeMap<String,Categoria>();
 		Empresa Empresa = new Empresa(Empleado,Cliente,Vehiculo,Oficina,Categoria,Alquiler);
+		
+		
+		Menus.Interfaz1();
+		int opcionmenu=in.nextInt();
+		do {
+			if (opcionmenu==1) {
+				Menus.Interfaz2();
+				opcionmenu=in.nextInt();
+				if(opcionmenu==1) {
+					Menus.InterfazVehiculos();
+					opcionmenu=in.nextInt();
+					if(opcionmenu==1) {
+						Menus.InterfazOpciones();
+						opcionmenu=in.nextInt();
+						if(opcionmenu==1) {
+							Cochelec Cochelec=CreaEntidades.CreaCochelec();
+							Vehiculo.put(,Cochelec);
+						}
+						if(opcionmenu==2) {
+							
+						}
+						if(opcionmenu==3) {
+							
+						}
+					}
+					if(opcionmenu==2) {
+						Menus.InterfazOpciones();
+						opcionmenu=in.nextInt();
+						if(opcionmenu==1) {
+							
+						}
+						if(opcionmenu==2) {
+							
+						}
+						if(opcionmenu==3) {
+							
+						}
+					}
+					if(opcionmenu==3) {
+						Menus.InterfazOpciones();
+						opcionmenu=in.nextInt();
+						if(opcionmenu==1) {
+							
+						}
+						if(opcionmenu==2) {
+							
+						}
+						if(opcionmenu==3) {
+							
+						}
+					}
+					if(opcionmenu==4) {
+						Menus.InterfazOpciones();
+						opcionmenu=in.nextInt();
+						if(opcionmenu==1) {
+							
+						}
+						if(opcionmenu==2) {
+							
+						}
+						if(opcionmenu==3) {
+							
+						}
+					}
+				}
+				if (opcionmenu==2) {
+					
+				}
+				if (opcionmenu==3) {
+					
+				}
+				if (opcionmenu==4) {
+					
+				}
+				if (opcionmenu==5) {
+					
+				}
+			}
+			if (opcionmenu==2) {
+				
+			}
+			if (opcionmenu==3) {
+				
+			}
+		}while (opcionmenu !=5);
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Serializacion ; creamos el  objeto empresa y lo serializamos...
 		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("C:\\Users\\avexw\\Desktop\\DAW\\Programación\\Entorno de trabajo\\Empresa.txt"))){
             //Escribimos en un fichero
             oos.writeObject(Empresa);

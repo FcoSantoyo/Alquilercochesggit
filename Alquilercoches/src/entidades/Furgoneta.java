@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Furgoneta extends Combustible{
@@ -11,7 +12,7 @@ public class Furgoneta extends Combustible{
 	private String carnet;
 	
 	//Propiedades heredadas
-			public Furgoneta(String matricula,String marca,String modelo,String bastidor,String color,Fechas fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,Double precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
+			public Furgoneta(String matricula,String marca,String modelo,String bastidor,String color,String fecha_adquisicion,Double kms,Categoria categoria,Cliente comprador,int precioalquiler,Oficina oficina,double consumo,int potencia,String emisiones) {
 				super(matricula,marca,modelo,bastidor,color,fecha_adquisicion,kms,categoria,comprador,precioalquiler,oficina);
 				this.setCarga(carga);
 				this.setCarnet(carnet);
@@ -23,7 +24,7 @@ public Furgoneta() {
 	
 }
 public Furgoneta(String matricula, String marca, String modelo, String bastidor, String color,
-		Fechas fecha_adquisicion, Double kms, Categoria categoria, String comprador, double precioalquiler,
+		String fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador, double precioalquiler,
 		Oficina oficina, double consumo, int potencia, String emisiones, Double carga2, String carnet2) {
 
 }
@@ -48,7 +49,7 @@ public Furgoneta(Furgoneta o)
 }
 	
 public Furgoneta(String matricula, String marca, String modelo, String bastidor, String color,
-		GregorianCalendar fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador, double precioalquiler,
+		String fecha_adquisicion, Double kms, Categoria categoria, Cliente comprador, int precioalquiler,
 		Oficina oficina, double consumo, int potencia, String emisiones, Double carga, String carnet) {
 	// TODO Auto-generated constructor stub
 }
@@ -82,9 +83,25 @@ return ("Matrícula: "+matricula+" Marca "+marca+" Modelo: "+modelo+" Bastidor: "
 
 
 @Override
-public void PrecioAlquiler() {
-	// TODO Auto-generated method stub
+/**
+ * Método para calcular el precio de alquiler de un vehículo
+ */
+public int PrecioAlquiler() {
+	int precioalquiler= this.precioalquiler;
+	int porcentaje= 0;
+	int recargo=0;
+	int precio;
 	
+	precio = precioalquiler + (porcentaje*precioalquiler)/100;
+	
+	recargo= this.getCategoria().getPorcentaje();
+	recargo= (recargo*precioalquiler)/100; //para obtener el porcentaje de recargo de la categoria
+	precio += recargo;
+	if (this.getOficina().getAreopuerto_no())
+	{
+		precio +=(precioalquiler*10)/100;
+	}
+	return precio;
 }
 
 
