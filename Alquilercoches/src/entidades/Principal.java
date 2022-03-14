@@ -37,7 +37,7 @@ public class Principal {
 						opcionmenu=in.nextInt();
 						if(opcionmenu==1) {
 							Cochelec Cochelec=CreaEntidades.CreaCochelec();
-							Vehiculo.put(,Cochelec);
+							Vehiculo.put(Cochelec);
 						}
 						if(opcionmenu==2) {
 							
@@ -108,26 +108,7 @@ public class Principal {
 		}while (opcionmenu !=5);
 			
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//Serializacion ; creamos el  objeto empresa y lo serializamos...
+			//Serializacion ; creamos el  objeto empresa y lo serializamos...
 		try(ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("C:\\Users\\avexw\\Desktop\\DAW\\Programación\\Entorno de trabajo\\Empresa.txt"))){
             //Escribimos en un fichero
             oos.writeObject(Empresa);
